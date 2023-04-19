@@ -39,6 +39,6 @@ npm run build
 pnpm build
 ```
 
-### Customize configuration yes
+### Customize configuration
 
 See [Configuration Reference](https://vitejs.dev/config/).
