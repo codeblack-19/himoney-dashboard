@@ -1,0 +1,6 @@
+$custom-family: "Raleway", sans-serif;
+
+@use "vuetify/settings" with (
+    $body-font-family: $custom-family,
+    $heading-font-family: $custom-family
+);
