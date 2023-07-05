@@ -47,10 +47,6 @@
     </v-layout>
 </template>
 
-<script lang="ts" setup>
-
-</script>
-
 <style>
 .username-chip.v-chip--variant-outlined{
     border: 1px solid rgb(220, 220, 220) !important;
