@@ -1,10 +1,14 @@
 <template>
     <v-layout>
-        <v-navigation-drawer permanent>
+        <v-navigation-drawer v-model="drawer" :permanent="permanentDrawer" :temporary="!permanentDrawer">
             <template v-slot:prepend>
-                <v-list-item class="pl-10 text-body-1 font-weight-bold" lines="two">
-                    <p>Himoney.</p>
+                <v-list-item v-if="!showToggle" class="pl-10 text-body-1 font-weight-bold" lines="two">
+                    <p>Himoney</p>
                 </v-list-item>
+                <div v-else class="d-flex align-center pl-10 pr-3 py-3">
+                    <p class="text-body-1 font-weight-bold flex-1-0">Himoney</p>
+                    <v-btn icon="mdi-close" elevation="0" rounded="lg" @click="drawer=false"></v-btn>
+                </div>
             </template>
 
             <v-list class="pl-4">
@@ -21,9 +25,11 @@
             </v-list>
         </v-navigation-drawer>
         <v-main style="min-height: 90vh">
-            <v-toolbar color="transparent" class="pt-1 px-5">
+            <v-toolbar color="transparent" class="pt-1 px-0 px-md-5">
                 <template v-slot:prepend>
-                    <v-btn prepend-icon="mdi-magnify" variant="plain" rounded="pill" color="grey">
+                    <v-btn v-if="showToggle" icon="mdi-menu" size="small" rounded="lg" @click="drawer=true"></v-btn>
+                    <p v-if="showToggle" class="mx-1">Himoney</p>
+                    <v-btn v-else prepend-icon="mdi-magnify" variant="plain" rounded="pill" color="grey">
                         search
                     </v-btn>
                 </template>
@@ -34,7 +40,7 @@
                     </v-badge>
                     <v-chip 
                         size="large"
-                        class="username-chip text-body-2 font-weight-medium ml-7"
+                        class="username-chip text-body-2 font-weight-medium ml-3"
                         color="grey-darken-4"
                         prepend-avatar="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460" 
                         variant="outlined">
@@ -46,6 +52,30 @@
         </v-main>
     </v-layout>
 </template>
+
+<script setup lang="ts">
+import { useWindowSize } from '@vueuse/core';
+import { ref, computed, watch } from 'vue';
+
+const { width } = useWindowSize();
+const drawer = ref<boolean>(true);
+const permanentDrawer = ref<boolean>(true);
+const winSize = ref<number>(1280)
+const showToggle = computed(() => {
+    return width.value < winSize.value
+})
+
+watch(width, (newWidth) => {
+    if(newWidth){
+        permanentDrawer.value = !showToggle.value
+        if(showToggle.value){
+            drawer.value = false
+        }
+    }
+})
+
+
+</script>
 
 <style>
 .username-chip.v-chip--variant-outlined{
