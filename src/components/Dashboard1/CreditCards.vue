@@ -8,7 +8,7 @@
 
     <!-- Card slider -->
     <div class="mt-3">
-        <swiper :modules="[Scrollbar]" :slides-per-view="2" :space-between="20">
+        <swiper :modules="[Scrollbar]" slides-per-view="auto" :space-between="20">
             <swiper-slide class="">
                 <v-card variant="flat" color="grey" class="py-7 px-8 mr-2" rounded="xl">
                     <div class="d-flex justify-space-between">

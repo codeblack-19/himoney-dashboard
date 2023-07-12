@@ -31,7 +31,7 @@
                                         <v-icon icon="mdi-currency-usd" color="grey-darken-2"></v-icon>
                                     </v-avatar>
 
-                                    <div class="ml-15 d-flex flex-column">
+                                    <div class="ml-7 ml-md-15  d-flex flex-column">
                                         <p class="text-body-1 font-weight-medium">Paypal</p>
                                         <p class="text-caption text-grey font-weight-medium"> {{ new Date().toLocaleString()
                                         }}</p>
@@ -52,7 +52,7 @@
                                         <v-icon icon="mdi-currency-usd" color="grey-darken-2"></v-icon>
                                     </v-avatar>
 
-                                    <div class="ml-15 d-flex flex-column">
+                                    <div class="ml-7 ml-md-15 d-flex flex-column">
                                         <p class="text-body-1 font-weight-medium">Paypal</p>
                                         <p class="text-caption text-grey font-weight-medium"> {{ new Date().toLocaleString()
                                         }}</p>
