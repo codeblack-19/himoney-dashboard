@@ -4,7 +4,7 @@
 
       <!-- balance component -->
       <v-row>
-        <v-col cols="12" md="4">
+        <v-col cols="6" md="4">
           <v-sheet color="white">
             <p class="text-subtitle-1 font-weight-medium">Total Balance</p>
             <p>
@@ -15,7 +15,7 @@
             </p>
           </v-sheet>
         </v-col>
-        <v-col cols="12" md="4">
+        <v-col cols="6" md="4">
           <v-sheet color="white">
             <p class="text-subtitle-1 font-weight-medium">Credit Limit</p>
             <p class="mt-1">
@@ -56,8 +56,8 @@
 
 <script lang="ts" setup>
 import VerticalNav from '@/layouts/VerticalNav.vue';
-import CreditCards from '@/components/Dashboard/CreditCards.vue';
-import Transactions from '@/components/Dashboard/Transactions.vue';
-import FavBeneficiary from '@/components/Dashboard/FavBeneficiary.vue';
-import SavingAnalysis from '@/components/Dashboard/SavingAnalysis.vue';
+import CreditCards from '@/components/Dashboard1/CreditCards.vue';
+import Transactions from '@/components/Dashboard1/Transactions.vue';
+import FavBeneficiary from '@/components/Dashboard1/FavBeneficiary.vue';
+import SavingAnalysis from '@/components/Dashboard1/SavingAnalysis.vue';
 </script>
