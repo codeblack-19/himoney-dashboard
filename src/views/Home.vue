@@ -1,7 +1,6 @@
 <template>
   <VerticalNav>
     <v-container>
-
       <!-- balance component -->
       <v-row>
         <v-col cols="6" md="4">
@@ -55,7 +54,7 @@
 </template>
 
 <script lang="ts" setup>
-import VerticalNav from '@/layouts/VerticalNav.vue';
+import VerticalNav from '@/layouts/VerticalNav1.vue';
 import CreditCards from '@/components/Dashboard1/CreditCards.vue';
 import Transactions from '@/components/Dashboard1/Transactions.vue';
 import FavBeneficiary from '@/components/Dashboard1/FavBeneficiary.vue';
