@@ -1,6 +1,7 @@
 // Composables
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeVue from '@/views/Home.vue'
+import LoopVue from '@/views/Loop.vue'
 import SampleVue from '@/views/Sample.vue'
 
 
@@ -9,7 +10,16 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      component: HomeVue
+      component: HomeVue,
+      meta: {
+        title: 'Himoney - Dashboard'
+      }
+    },{
+      path: '/loop',
+      component: LoopVue,
+      meta: {
+        title: 'Loop - Dashboard'
+      }
     },{
       path: '/sample',
       component: SampleVue
