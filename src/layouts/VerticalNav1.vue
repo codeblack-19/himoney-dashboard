@@ -1,18 +1,18 @@
 <template>
     <v-layout>
-        <v-navigation-drawer v-model="drawer" :permanent="permanentDrawer" :temporary="!permanentDrawer">
+        <v-navigation-drawer v-model="uiStore.drawer" :permanent="uiStore.permanentDrawer" :temporary="!uiStore.permanentDrawer">
             <template v-slot:prepend>
-                <v-list-item v-if="!showToggle" class="pl-10 text-body-1 font-weight-bold" lines="two">
+                <v-list-item v-if="!uiStore.showToggle" class="pl-10 text-body-1 font-weight-bold" lines="two">
                     <p>Himoney</p>
                 </v-list-item>
                 <div v-else class="d-flex align-center pl-10 pr-3 py-3">
                     <p class="text-body-1 font-weight-bold flex-1-0">Himoney</p>
-                    <v-btn icon="mdi-close" elevation="0" rounded="lg" @click="drawer=false"></v-btn>
+                    <v-btn icon="mdi-close" elevation="0" rounded="lg" @click="uiStore.drawer=false"></v-btn>
                 </div>
             </template>
 
             <v-list class="pl-4">
-                <v-list-item prepend-icon="mdi-home-outline" title="Overview"></v-list-item>
+                <v-list-item prepend-icon="mdi-home-outline" title="Loop" to="/loop" ></v-list-item>
                 <v-list-item prepend-icon="mdi-chart-donut" title="Payments"></v-list-item>
                 <v-list-item prepend-icon="mdi-swap-horizontal" title="Exchanges"></v-list-item>
                 <v-list-item prepend-icon="mdi-trophy-outline" title="Points"></v-list-item>
@@ -25,10 +25,10 @@
             </v-list>
         </v-navigation-drawer>
         <v-main style="min-height: 90vh">
-            <v-toolbar color="transparent" class="pt-1 px-0 px-md-5">
+            <v-app-bar :color="uiStore.yScrollWidth < 50 ? 'transparent' : 'white'" :elevation="uiStore.yScrollWidth < 50 ? 0 : 1" class="pt-1 px-0 px-md-5">
                 <template v-slot:prepend>
-                    <v-btn v-if="showToggle" icon="mdi-menu" size="small" rounded="lg" @click="drawer=true"></v-btn>
-                    <p v-if="showToggle" class="mx-1">Himoney</p>
+                    <v-btn v-if="uiStore.showToggle" icon="mdi-menu" size="small" rounded="lg" @click="uiStore.drawer=true"></v-btn>
+                    <p v-if="uiStore.showToggle" class="mx-1">Himoney</p>
                     <v-btn v-else prepend-icon="mdi-magnify" variant="plain" rounded="pill" color="grey">
                         search
                     </v-btn>
@@ -47,34 +47,23 @@
                         George Smith
                     </v-chip>
                 </template>
-            </v-toolbar>
+            </v-app-bar>
             <slot></slot>
+            <v-footer >
+                <p class="mx-auto text-grey-darken-2">
+                    <span>Himoney</span> &copy; 2023
+                </p>
+            </v-footer>
         </v-main>
     </v-layout>
 </template>
 
 <script setup lang="ts">
-import { useWindowSize } from '@vueuse/core';
-import { ref, computed, watch } from 'vue';
+import { useNavStore } from "@/store/navStore"
+import { useUiStore } from "@/store/uiStore"
 
-const { width } = useWindowSize();
-const drawer = ref<boolean>(true);
-const permanentDrawer = ref<boolean>(true);
-const winSize = ref<number>(1280)
-const showToggle = computed(() => {
-    return width.value < winSize.value
-})
-
-watch(width, (newWidth) => {
-    if(newWidth){
-        permanentDrawer.value = !showToggle.value
-        if(showToggle.value){
-            drawer.value = false
-        }
-    }
-})
-
-
+const navStore = useNavStore()
+const uiStore = useUiStore()
 </script>
 
 <style>
