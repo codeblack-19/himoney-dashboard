@@ -9,7 +9,7 @@
     <!-- Card slider -->
     <div class="mt-3">
         <swiper :modules="[Scrollbar]" slides-per-view="auto" :space-between="20">
-            <swiper-slide class="">
+            <swiper-slide class="cc-slide">
                 <v-card variant="flat" color="grey" class="py-7 px-8 mr-2" rounded="xl">
                     <div class="d-flex justify-space-between">
                         <p class="text-h5 font-weight-medium">Visa</p>
@@ -24,7 +24,7 @@
                     </div>
                 </v-card>
             </swiper-slide>
-            <swiper-slide>
+            <swiper-slide class="cc-slide">
                 <v-card variant="flat" color="amber-darken-2" class="py-7 px-8 mr-2" rounded="xl">
                     <div class="d-flex justify-space-between">
                         <p class="text-h5 font-weight-medium">Master</p>
@@ -39,7 +39,7 @@
                     </div>
                 </v-card>
             </swiper-slide>
-            <swiper-slide>
+            <swiper-slide class="cc-slide">
                 <v-card variant="flat" color="blue-darken-2" class="py-7 px-8 mr-2" rounded="xl">
                     <div class="d-flex justify-space-between">
                         <p class="text-h5 font-weight-medium">Paypal</p>
@@ -63,5 +63,9 @@ import { Scrollbar } from 'swiper/modules'
 import { SwiperSlide, Swiper } from 'swiper/vue'
 import 'swiper/css'
 import 'swiper/css/scrollbar';
-
 </script>
+<style scoped>
+.cc-slide{
+    width: 355px !important;
+}
+</style>
