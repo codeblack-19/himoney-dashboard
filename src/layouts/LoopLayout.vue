@@ -44,13 +44,13 @@
 
                     <template v-if="item.title == 'Dark Mode'" v-slot:append>
                         <v-list-item-action>
-                            <v-switch density="compact" hide-details></v-switch>
+                            <v-switch density="compact" hide-details v-model="darkMode"></v-switch>
                         </v-list-item-action>
                     </template>
                 </v-list-item>
             </v-list>
         </v-navigation-drawer>
-        <v-main style="min-height: 100vh; background-color: #F5F5F5;">
+        <v-main style="min-height: 100vh;" class="bg-grey-lighten-4">
             <v-app-bar color="grey-lighten-4" :elevation="1" class="px-0 px-md-5">
                 <template v-slot:prepend>
                     <v-btn v-if="uiStore.showToggle" icon="mdi-menu" size="small" rounded="lg" @click="uiStore.drawer = true"></v-btn>
@@ -92,9 +92,22 @@
 <script setup lang="ts">
 import { useNavStore } from "@/store/navStore"
 import { useUiStore } from "@/store/uiStore"
+import { ref, watch } from "vue";
+import { useTheme } from "vuetify/lib/framework.mjs";
 
 const navStore = useNavStore()
 const uiStore = useUiStore()
+const theme = useTheme()
+const darkMode = ref<boolean>(false)
+
+const changeTheme = () => {
+  theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark';
+}
+
+watch(darkMode, (newValue) => {
+    return changeTheme()
+})
+
 </script>
 
 <style>
