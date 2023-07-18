@@ -17,8 +17,8 @@
                             <p class="text-body-2 font-weight-bold mb-n1"
                                 :class="item.increment ? 'text-success' : 'text-red-lighten-1'">
                                 <v-icon size="small"
-                                    :icon="item.increment ? 'mdi-arrow-top-right' : 'mdi-arrow-bottom-right'" />
-                                <span>{{ item.percent }} %</span>
+                                    :icon="item.increment ? 'mdi-trending-up' : 'mdi-trending-down'" />
+                                <span class="ml-1">{{ item.percent }} %</span>
                             </p>
                             <p class="text-grey text-caption font-weight-medium">vs last 7 days</p>
                         </div>
