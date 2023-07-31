@@ -35,7 +35,7 @@
                     </v-list>
                 </v-menu>
             </div>
-            <div id="CustomerChartBox" style="height: 350px"></div>
+            <div id="CustomerChartBox" style="height: 350px;"></div>
         </v-sheet>
     </div>
 </template>
@@ -130,5 +130,6 @@ onMounted(() => {
     CustomerChartBox.value = document.getElementById('CustomerChartBox')
     let CustomerChart = init(CustomerChartBox.value!)
     CustomerChart.setOption(chartOptions.value)
+    new ResizeObserver(() => CustomerChart.resize()).observe(CustomerChartBox.value as Element)
 })
 </script>

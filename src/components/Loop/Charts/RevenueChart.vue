@@ -2,7 +2,7 @@
     <div>
         <v-sheet rounded="lg" class="pa-4">
             <div class="d-flex">
-                <div class="flex-1-0">
+                <div class="flex-md-1-0">
                     <p class="d-flex mb-n1">
                         <span style="font-size: 20px" class="font-weight-medium mr-2">Revenue Growth</span>
                         <span class="text-subtitle-1">(USD)</span>
@@ -13,7 +13,7 @@
                 </div>
                 <v-btn color="primary" size="small" variant="text">view detail</v-btn>
             </div>
-            <div id="revenueChartBox" style="height: 350px"></div>
+            <div id="revenueChartBox" style="widows: 100%; height: 350px"></div>
         </v-sheet>
     </div>
 </template>
@@ -116,5 +116,6 @@ onMounted(() => {
     revenueChartBox.value = document.getElementById('revenueChartBox')
     let revenueChart = init(revenueChartBox.value!)
     revenueChart.setOption(chartOptions.value)
+    new ResizeObserver(() => revenueChart.resize()).observe(revenueChartBox.value as Element)
 })
 </script>
