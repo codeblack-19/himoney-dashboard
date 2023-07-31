@@ -7,7 +7,7 @@
         <SummaryCards />
 
         <!-- charts -->
-        <v-row class="mt-2">
+        <v-row class="mt-1 mt-md-2">
             <v-col cols="12" md="6">
                 <RevenueChart />
             </v-col>
