@@ -1,7 +1,14 @@
 <template>
     <div>
         <v-container>
-            <v-date-picker v-model="dateValue"></v-date-picker>
+            <v-menu>
+                <template v-slot:activator="{ props }">
+                    <v-text-field v-bind="props" v-model="dateValue" label="Label" variant="outlined"></v-text-field>
+                </template>
+
+                <v-date-picker v-model="dateValue"></v-date-picker>
+            </v-menu>
+            
         </v-container>
     </div>
 </template>
