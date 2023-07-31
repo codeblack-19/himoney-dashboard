@@ -1,6 +1,6 @@
 <template>
     <div class="d-flex">
-        <v-btn-toggle v-model="lastFilter" rounded="0" group color="primary" density="compact" selected-class="lf-active"
+        <v-btn-toggle class="d-none d-sm-flex" v-model="lastFilter" rounded="0" group color="primary" density="compact" selected-class="lf-active"
             variant="plain">
             <v-btn v-for="(item, index) in filterBtnTexts" :key="index" size="small" class="mr-2 text-capitalize"
                 :value="item.value">
