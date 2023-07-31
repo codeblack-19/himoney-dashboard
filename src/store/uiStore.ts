@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { useWindowSize, useWindowScroll } from '@vueuse/core';
-import { ref, computed, watch } from "vue";
+import { ref, computed, watch, onMounted } from "vue";
 
 export const useUiStore = defineStore("uiStore", () => {
     const { width: winWidth, height: winHeight  } = useWindowSize();
@@ -18,6 +18,13 @@ export const useUiStore = defineStore("uiStore", () => {
             if (showToggle.value) {
                 drawer.value = false
             }
+        }
+    })
+
+    onMounted(() => {
+        permanentDrawer.value = !showToggle.value
+        if (showToggle.value) {
+            drawer.value = false
         }
     })
 
