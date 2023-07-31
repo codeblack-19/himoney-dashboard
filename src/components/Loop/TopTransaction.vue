@@ -2,7 +2,7 @@
     <div>
         <v-sheet rounded="lg" class="pa-4">
             <div class="d-flex">
-                <div class="flex-1-0">
+                <div class="flex-md-1-0">
                     <p class="d-flex mb-n1">
                         <span style="font-size: 20px" class="font-weight-medium mr-2">Top Transaction</span>
                     </p>
